@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+public class Test
+{
+	public static void Main()
+	{
+		Console.WriteLine("Welcome to Crappy slots.\n Please enter how many coins you wish to start with:");
+		int money = 10;
+			//-remove this - Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Your staringmoney is: " + money + "\nA spin costs 1. Get 3 Jackpot to win");
+		//Console.ReadKey();				
+		string[] slotwheels =	
+			{
+			"Heart",
+			"Bar",
+			"Cherry",
+			"7",
+			"Goldcoin",
+			"Jackpot"
+			};
+			int count=0;
+		//string wheel1;
+	//	string wheel2;
+		//string wheel3;	
+		while (money >0)
+			{
+				--money;	 
+				int roll1 = rndspn();			
+				int roll2 = rndspn();		
+				int roll3 = rndspn();
+			 ++count; 
+				Console.Write(slotwheels[roll1]+" " + slotwheels[roll2] +" "+ slotwheels[roll3] + " \n");
+				
+				if (roll1 == 5 &&  roll2 == 5 && roll3 == 5)
+					{
+					Console.Write(" You win!\n you spunn " +count + "times");
+					break;
+					}
+					else if(roll1==roll2 ||roll1==roll3 ||roll2==roll3){money +=2;}
+				else if (money == 0)
+				{Console.WriteLine(" You lost, you spunn " +count  +"times");}
+				else 
+				{Console.Write("No luck. Try Again.\n");}
+				}
+			}
+			static Random numGen = new Random();
+		 static int rndspn()
+			{
+			int random = numGen.Next(0,6);
+			return random;
+			}
+		}
+	
+
+
+
+
+
+
+    
